@@ -35,8 +35,15 @@ class App extends Component {
                 </div>
 							</div>
 						</div>
-						<div className="col-9 Tickets">
-							<div className="Tickets__item"></div>
+						<div className="col-9 flight-search">
+							<div className="flight-search__item">
+                <div className="row">
+                  <div className="col-3 flight-search__price">
+                    <button className="button">Купить <br/> за 22 245 ​₽</button>
+                  </div>
+                  <div className="col-9 flight-search__info"></div>
+                </div>
+              </div>
 						</div>
 					</div>
 				</div>

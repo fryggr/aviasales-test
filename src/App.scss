@@ -38,12 +38,12 @@
   padding: 15px;
 }
 
-.Tickets__item{
+.flight-search__item{
 	height: 161px;
 }
 
 .Filters,
-.Tickets__item {
+.flight-search__item {
 	background: #fff;
 	box-shadow: 0 1px 4px rgba(91, 137, 164, 0.25);
 	border-radius: 5px;
@@ -90,7 +90,7 @@
     position: relative;
     padding-left: 30px;
     color: #4a4a4a;
-    font-family: "Open Sans";
+    font-family: 'Open Sans', sans-serif;
     font-size: 0.813rem;
     line-height: 1;
     width: 100%;
@@ -117,4 +117,21 @@
     border: 1px solid #2196f3;
     background-color: #f2fcff;
   }
+}
+
+.button {
+  padding: 6px 0;
+  width: 10rem;
+  border: none;
+  box-shadow: 0 0.125rem 0.063rem rgba(0, 0, 0, 0.1), 0 0.063rem 0 #d64d08;
+  border-radius: 0.313rem;
+  background-color: #ff6d00;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.flight-search__price {
+  border-right: 1px solid #eceff1;
 }
