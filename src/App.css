@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+	background: #F3F7FA;
 }
 
 .App-logo {
@@ -21,6 +22,21 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Filters{
+	height: 331px;
+}
+
+.Tickets__item{
+	height: 161px;
+}
+
+.Filters,
+.Tickets__item {
+	background: #fff;
+	box-shadow: 0 1px 4px rgba(91, 137, 164, 0.25);
+	border-radius: 5px;
 }
 
 @keyframes App-logo-spin {
