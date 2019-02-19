@@ -10,12 +10,19 @@ class App extends Component {
     tickets: tickets.tickets
   }
 
+	getTickets = tickets => {
+		this.setState((state, props) => ({
+	    tickets: tickets,
+		}));
+		// this.setState({tickets: tickets})
+	}
+
   render() {
     return (
       <div className="App">
 				<div className="container">
 					<div className="row">
-						<Filters tickets={this.state.tickets}/>
+						<Filters tickets={this.state.tickets} getTickets={this.getTickets}/>
             <FlightSearch tickets={this.state.tickets}/>
 					</div>
 				</div>

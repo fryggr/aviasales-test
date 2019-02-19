@@ -12,7 +12,7 @@ class Filters extends Component {
   }
 
   handleInputChange = (event) => {
-    const { tickets } = this.props
+    const { tickets, getTickets } = this.props
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.id;
@@ -29,6 +29,7 @@ class Filters extends Component {
     const filter =
       tickets.filter(ticket => ticket.stops === withoutTransfer || ticket.stops === transfer1 || ticket.stops === transfer2 || ticket.stops === transfer3)
     console.log(filter);
+		getTickets(filter)
   }
 
   render() {
