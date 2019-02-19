@@ -1,0 +1,55 @@
+$font-family-open-sans: 'Open Sans', sans-serif;
+
+.FlightSearch{
+
+  &__item {
+    background: #fff;
+  	box-shadow: 0 1px 4px rgba(91, 137, 164, 0.25);
+  	border-radius: 5px;
+    height: 161px;
+  }
+
+  &__info {
+    padding: 25px 20px;
+  }
+
+  &__price {
+    border-right: 1px solid #eceff1;
+    padding: 25px 20px;
+  }
+
+  &__destination-time {
+    color: #4a4a4a;
+    font-family: $font-family-open-sans;
+    font-size: 2rem;
+    line-height: 1.625rem;
+  }
+
+  &__transfer-icon {
+    background-image: url('./icon_aircraft.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 110px;
+    height: 13px;
+  }
+
+  &__transfer-title {
+    color: #8b9497;
+    font-family: $font-family-open-sans;
+    font-size: 0.625rem;
+    font-weight: 600;
+    line-height: 0.756rem;
+  }
+
+  &__destination {
+    color: #8b9497;
+    font-family: $font-family-open-sans;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+
+    &-point {
+      color: #4a4a4a;
+      font-weight: 600;
+    }
+  }
+}
