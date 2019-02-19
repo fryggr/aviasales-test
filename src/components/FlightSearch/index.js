@@ -1,22 +1,13 @@
 import React, { Component } from 'react'
 import './index.scss'
-import tickets from '../../tickets.json'
 
-class FlightSearch extends Component {
-
-  componentDidMount() {
-      this.loadTickets()
-  }
-
-  loadTickets() {
-    console.log(tickets.tickets);
-    return tickets.tickets
-  }
+class FlightSearch extends Component {  
 
   render() {
+    const { tickets } = this.props
     return (
       <div className="col-9 FlightSearch">
-        {this.loadTickets().map(ticket => {
+        {tickets.map(ticket => {
           return (
               <div className="FlightSearch__item">
                 <div className="row h-100 m-0">
