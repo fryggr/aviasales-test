@@ -9,8 +9,8 @@ class Filters extends Component {
       bool: false
     },
     withoutTransfer: {
-      value: 0,
-      bool: true
+      value: null,
+      bool: false
     },
     transfer1: {
       value: 1,
@@ -48,9 +48,24 @@ class Filters extends Component {
       check.bool = false
     }
 
-    this.setState({
-      [name]: check
-    }, () => this.filterTickets());
+    if(this.state.allTransfers.bool && !value) {
+      this.setState({ allTransfers: { value: null, bool: false } })
+    }
+
+    if(name === "allTransfers" && value) {
+      this.setState({
+        withoutTransfer: { value: 0, bool: true},
+        allTransfers: { value: "all", bool: true },
+        transfer1: { value: 1, bool: true},
+        transfer2: { value: 2, bool: true},
+        transfer3: { value: 3, bool: true}
+      }, () => this.filterTickets())
+    }
+    else {
+      this.setState({
+        [name]: check
+      }, () => this.filterTickets());
+    }
   }
 
   filterTickets = () => {
