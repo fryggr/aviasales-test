@@ -4,32 +4,62 @@ import './index.scss'
 class Filters extends Component {
 
   state = {
-    allTransfers: false,
-    withoutTransfer: true,
-    transfer1: true,
-    transfer2: true,
-    transfer3: false
+    allTransfers: {
+      value: null,
+      bool: false
+    },
+    withoutTransfer: {
+      value: 0,
+      bool: true
+    },
+    transfer1: {
+      value: 1,
+      bool: true
+    },
+    transfer2: {
+      value: 2,
+      bool: true
+    },
+    transfer3: {
+      value: null,
+      bool: false
+    }
+  }
+
+  componentDidMount() {
+    this.filterTickets()
   }
 
   handleInputChange = (event) => {
-    const { tickets, getTickets } = this.props
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.id;
 
+    let check = {
+      value: "",
+      bool: ""
+    }
+
+    if(value) {
+      check.value = +target.value;
+      check.bool = true
+    } else {
+      check.value = null;
+      check.bool = false
+    }
+
     this.setState({
-      [name]: value
-    });
+      [name]: check
+    }, () => this.filterTickets());
+  }
 
-    const withoutTransfer = this.state.withoutTransfer ? 0 : null
-    const transfer1 = this.state.transfer1 ? 1 : null
-    const transfer2 = this.state.transfer2 ? 2 : null
-    const transfer3 = this.state.transfer3 ? 3 : null
+  filterTickets = () => {
+    const { tickets, getTickets } = this.props
+    let { withoutTransfer, transfer1, transfer2, transfer3 } = this.state
 
-    const filter =
-      tickets.filter(ticket => ticket.stops === withoutTransfer || ticket.stops === transfer1 || ticket.stops === transfer2 || ticket.stops === transfer3)
-    console.log(filter);
-		getTickets(filter)
+    const filterTickets = tickets.filter(ticket => ticket.stops === withoutTransfer.value || ticket.stops === transfer1.value || ticket.stops === transfer2.value || ticket.stops === transfer3.value)
+
+		getTickets(filterTickets)
   }
 
   render() {
@@ -71,7 +101,7 @@ class Filters extends Component {
               name="transfer"
               value="all"
               id="allTransfers"
-              checked={this.state.allTransfers}
+              checked={this.state.allTransfers.bool}
               onChange={this.handleInputChange} />
             <label htmlFor="allTransfers">Все</label>
             <input
@@ -80,7 +110,7 @@ class Filters extends Component {
               name="transfer"
               value="0"
               id="withoutTransfer"
-              checked={this.state.withoutTransfer}
+              checked={this.state.withoutTransfer.bool}
               onChange={this.handleInputChange}
                />
             <label htmlFor="withoutTransfer">Без пересадок</label>
@@ -90,7 +120,7 @@ class Filters extends Component {
               name="transfer"
               value="1"
               id="transfer1"
-              checked={this.state.transfer1}
+              checked={this.state.transfer1.bool}
               onChange={this.handleInputChange}
                />
             <label htmlFor="transfer1">1 пересадка</label>
@@ -100,7 +130,7 @@ class Filters extends Component {
               name="transfer"
               value="2"
               id="transfer2"
-              checked={this.state.transfer2}
+              checked={this.state.transfer2.bool}
               onChange={this.handleInputChange}
                />
              <label htmlFor="transfer2">2 пересадки</label>
@@ -110,7 +140,7 @@ class Filters extends Component {
               name="transfer"
               value="3"
               id="transfer3"
-              checked={this.state.transfer3}
+              checked={this.state.transfer3.bool}
               onChange={this.handleInputChange} />
             <label htmlFor="transfer3">3 пересадки</label>
           </div>

@@ -11,10 +11,7 @@ class App extends Component {
   }
 
 	getTickets = tickets => {
-		this.setState((state, props) => ({
-	    tickets: tickets,
-		}));
-		// this.setState({tickets: tickets})
+		this.setState({tickets: tickets})
 	}
 
   render() {
@@ -22,7 +19,7 @@ class App extends Component {
       <div className="App">
 				<div className="container">
 					<div className="row">
-						<Filters tickets={this.state.tickets} getTickets={this.getTickets}/>
+						<Filters tickets={tickets.tickets} getTickets={this.getTickets}/>
             <FlightSearch tickets={this.state.tickets}/>
 					</div>
 				</div>
