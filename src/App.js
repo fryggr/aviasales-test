@@ -26,8 +26,6 @@ class App extends Component {
         })
       })
       .catch(error => this.setState({ error, isLoading: false }));
-
-
   }
 
 	getTickets = tickets => {
@@ -47,7 +45,13 @@ class App extends Component {
                 <FlightSearch tickets={this.state.tickets}/>
     					</div>
     				</div>
-          </div>) : (<div>Loading...</div>)
+          </div>) : (
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            </div>
+          )
         }
       </React.Fragment>
     )

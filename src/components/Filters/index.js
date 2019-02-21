@@ -23,7 +23,19 @@ class Filters extends Component {
     transfer3: {
       value: null,
       bool: false
-    }
+    },
+    // rub: {
+    //   value: "rub",
+    //   bool: true
+    // },
+    // eur: {
+    //   value: "eur",
+    //   bool: false
+    // },
+    // usd: {
+    //   value: "usd",
+    //   bool: false
+    // }
   }
 
   componentDidMount() {
@@ -72,7 +84,6 @@ class Filters extends Component {
     const { tickets, getTickets } = this.props
     let { withoutTransfer, transfer1, transfer2, transfer3 } = this.state
 
-    // const filterTickets = tickets !== undefined ?
     const filterTickets =
       tickets.filter(ticket =>
         ticket.stops === withoutTransfer.value ||
@@ -80,13 +91,24 @@ class Filters extends Component {
         ticket.stops === transfer2.value ||
         ticket.stops === transfer3.value)
 
-
-      console.log(filterTickets);
-
 		getTickets(filterTickets)
   }
 
+  changeCurrency = (e) => {
+    const { name, value } = e.target;
+
+    this.setState({
+      [name]: value
+    });
+
+    const rub = 1;
+    const usd = 65.86*rub;
+
+    
+  }
+
   render() {
+    console.log(this.state);
     return (
       <div className="col-3 Filters">
         <div className="Currency">
@@ -98,21 +120,24 @@ class Filters extends Component {
               name="currency"
               value="rub"
               id="rub"
-              checked />
+              defaultChecked
+              onChange={this.changeCurrency} />
             <label htmlFor="rub">rub</label>
             <input
               type="radio"
               className="Currency__input"
               name="currency"
               value="usd"
-              id="usd" />
+              id="usd"
+              onChange={this.changeCurrency} />
             <label htmlFor="usd">usd</label>
             <input
               type="radio"
               className="Currency__input"
               name="currency"
               value="eur"
-              id="eur" />
+              id="eur"
+              onChange={this.changeCurrency} />
             <label htmlFor="eur">eur</label>
           </div>
         </div>
