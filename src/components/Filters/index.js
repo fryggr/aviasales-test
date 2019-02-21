@@ -72,7 +72,16 @@ class Filters extends Component {
     const { tickets, getTickets } = this.props
     let { withoutTransfer, transfer1, transfer2, transfer3 } = this.state
 
-    const filterTickets = tickets.filter(ticket => ticket.stops === withoutTransfer.value || ticket.stops === transfer1.value || ticket.stops === transfer2.value || ticket.stops === transfer3.value)
+    // const filterTickets = tickets !== undefined ?
+    const filterTickets =
+      tickets.filter(ticket =>
+        ticket.stops === withoutTransfer.value ||
+        ticket.stops === transfer1.value ||
+        ticket.stops === transfer2.value ||
+        ticket.stops === transfer3.value)
+
+
+      console.log(filterTickets);
 
 		getTickets(filterTickets)
   }
