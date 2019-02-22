@@ -24,18 +24,7 @@ class Filters extends Component {
       value: null,
       bool: false
     },
-    // rub: {
-    //   value: "rub",
-    //   bool: true
-    // },
-    // eur: {
-    //   value: "eur",
-    //   bool: false
-    // },
-    // usd: {
-    //   value: "usd",
-    //   bool: false
-    // }
+		currency: "rub"
   }
 
   componentDidMount() {
@@ -99,16 +88,10 @@ class Filters extends Component {
 
     this.setState({
       [name]: value
-    });
-
-    const rub = 1;
-    const usd = 65.86*rub;
-
-    
+    }, ()=> this.props.getCurrency(this.state.currency));
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="col-3 Filters">
         <div className="Currency">

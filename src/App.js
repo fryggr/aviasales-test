@@ -8,7 +8,11 @@ class App extends Component {
   state = {
     tickets: [],
     isLoading: true,
-    error: null
+    error: null,
+		currency: {
+			name: "₽",
+			value: 1
+		}
   }
 
   componentDidMount() {
@@ -32,6 +36,30 @@ class App extends Component {
 		this.setState({tickets: tickets})
 	}
 
+	getCurrency = currency => {
+
+    const usd = 65.86;
+		const eur = 74.33;
+		let name = "₽";
+		let value = 1;
+
+		switch (currency) {
+			case "usd":
+				value = usd;
+				name = "$"
+				break;
+			case "eur":
+				value = eur;
+				name = "€"
+				break;
+			case "rub":
+				value = 1;
+				name = "₽";
+		}
+
+		this.setState({ currency: { name: name, value: value} })
+	}
+
   render() {
     const { isLoading, error } = this.state;
     return (
@@ -41,8 +69,8 @@ class App extends Component {
           (<div className="App">
     				<div className="container">
     					<div className="row">
-    						<Filters tickets={this.initialTickets} getTickets={this.getTickets}/>
-                <FlightSearch tickets={this.state.tickets}/>
+    						<Filters tickets={this.initialTickets} getTickets={this.getTickets} getCurrency={this.getCurrency}/>
+                <FlightSearch tickets={this.state.tickets} currency={this.state.currency}/>
     					</div>
     				</div>
           </div>) : (

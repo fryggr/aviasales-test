@@ -4,7 +4,7 @@ import './index.scss'
 class FlightSearch extends Component {
 
   render() {
-    const { tickets } = this.props
+    const { tickets, currency } = this.props
     return (
       <div className="col-9 FlightSearch">
         {
@@ -13,7 +13,7 @@ class FlightSearch extends Component {
                   <div className="FlightSearch__item">
                     <div className="row h-100 m-0">
                       <div className="col-4 FlightSearch__price">
-                        <button className="button">Купить <br/> за {ticket.price} ​₽</button>
+                        <button className="button">Купить <br/> за {parseInt(ticket.price/currency.value)} ​{currency.name}</button>
                       </div>
                       <div className="col-8 FlightSearch__info">
                         <div className="FlightSearch__time row mb-2">
@@ -39,7 +39,7 @@ class FlightSearch extends Component {
                     </div>
                   </div>
               )
-        })} 
+        })}
       </div>
     )
   }
