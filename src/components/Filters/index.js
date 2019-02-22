@@ -105,7 +105,7 @@ class Filters extends Component {
               id="rub"
               defaultChecked
               onChange={this.changeCurrency} />
-            <label htmlFor="rub">rub</label>
+            <label htmlFor="rub" className="Currency__label Currency__label_rub">rub</label>
             <input
               type="radio"
               className="Currency__input"
@@ -113,7 +113,7 @@ class Filters extends Component {
               value="usd"
               id="usd"
               onChange={this.changeCurrency} />
-            <label htmlFor="usd">usd</label>
+            <label htmlFor="usd" className="Currency__label Currency__label_usd">usd</label>
             <input
               type="radio"
               className="Currency__input"
@@ -121,7 +121,7 @@ class Filters extends Component {
               value="eur"
               id="eur"
               onChange={this.changeCurrency} />
-            <label htmlFor="eur">eur</label>
+            <label htmlFor="eur" className="Currency__label Currency__label_eur">eur</label>
           </div>
         </div>
         <div className="Transfer">

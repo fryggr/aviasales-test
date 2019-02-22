@@ -1,21 +1,56 @@
 $font-family-open-sans: 'Open Sans', sans-serif;
 
-.Filters{
-	height: 331px;
-  padding: 15px;
-}
-
 .Filters {
 	background: #fff;
 	box-shadow: 0 1px 4px rgba(91, 137, 164, 0.25);
 	border-radius: 5px;
+	height: 331px;
+  padding: 15px;
+
+	&__title {
+		color: #4a4a4a;
+	  font-family: $font-family-open-sans;
+	  font-size: 0.75rem;
+	  font-weight: 600;
+	  letter-spacing: 0.031rem;
+	  line-height: 1.188rem;
+	}
 }
 
-.Filters__title{
-  color: #4a4a4a;
-  font-family: $font-family-open-sans;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.031rem;
-  line-height: 1.188rem;
+.Currency {
+	&__label {
+		border: 0.063rem solid #d2d5d6;
+		width: 4.25rem;
+		height: 2.5rem;
+		cursor: pointer;
+		text-transform: uppercase;
+    line-height: 2.2rem;
+		color: #2196f3;
+
+		&:hover {
+			border: 0.063rem solid #64b5f5;
+			background-color: #f2fcff;
+			color: #2196f3;
+		}
+
+		&_rub {
+			border-radius: 0.313rem 0 0 0.313rem;
+			border-right: 0;
+		}
+
+		&_eur {
+			border-radius: 0 0.313rem 0.313rem 0;
+			border-left: 0;
+		}
+	}
+
+	&__input {
+		display: none;
+
+		&:checked + label {
+			background-color: #2196f3;
+	    border-color: #2196f3;
+			color: #ffffff;
+		}
+	}
 }

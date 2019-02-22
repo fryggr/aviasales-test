@@ -35,28 +35,6 @@
 
 $font-family-open-sans: 'Open Sans', sans-serif;
 
-.Currency__input{
-  display: none;
-
-  & + label {
-		cursor: pointer;
-    text-transform: uppercase;
-    border-radius: 0 5px 5px 0;
-    border: 1px solid #d2d5d6;
-    background: none;
-
-     &:hover {
-      background-color: #f2fcff;
-      border-color: #2196f3;
-     }
-	}
-
-	&:checked + label {
-		background-color: #2196f3;
-    border-color: #2196f3;
-	}
-}
-
 .Transfer__input{
   display: none;
 
