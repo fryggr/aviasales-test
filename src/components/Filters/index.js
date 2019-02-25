@@ -93,7 +93,7 @@ class Filters extends Component {
 
   render() {
     return (
-      <div className="col-3 Filters">
+      <div className="col-lg-3 col-xl-3 col-md-10 col-sm-12 col-12 mb-4 Filters">
         <div className="Currency">
           <h3 className="Filters__title">ВАЛЮТА</h3>
           <div className="Currency__radio">

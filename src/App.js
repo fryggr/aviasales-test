@@ -68,6 +68,7 @@ class App extends Component {
         {!isLoading ?
           (<div className="App">
     				<div className="container">
+              <div className="App__icon mx-auto"></div>
     					<div className="row">
     						<Filters tickets={this.initialTickets} getTickets={this.getTickets} getCurrency={this.getCurrency}/>
                 <FlightSearch tickets={this.state.tickets} currency={this.state.currency}/>

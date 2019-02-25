@@ -1,4 +1,4 @@
-$font-family-open-sans: 'Open Sans', sans-serif;
+@import "../../_variables.scss";
 
 .FlightSearch{
 
@@ -7,6 +7,7 @@ $font-family-open-sans: 'Open Sans', sans-serif;
   	box-shadow: 0 1px 4px rgba(91, 137, 164, 0.25);
   	border-radius: 5px;
     height: 161px;
+    margin-bottom: 20px;
   }
 
   &__info {
@@ -29,7 +30,7 @@ $font-family-open-sans: 'Open Sans', sans-serif;
     background-image: url('./icon_aircraft.png');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 110px;
+    width: 6.813rem;
     height: 13px;
   }
 

@@ -1,4 +1,4 @@
-$font-family-open-sans: 'Open Sans', sans-serif;
+@import "../../_variables.scss";
 
 .Filters {
 	background: #fff;
@@ -6,6 +6,7 @@ $font-family-open-sans: 'Open Sans', sans-serif;
 	border-radius: 5px;
 	height: 331px;
   padding: 15px;
+  text-align: left;
 
 	&__title {
 		color: #4a4a4a;
@@ -14,6 +15,60 @@ $font-family-open-sans: 'Open Sans', sans-serif;
 	  font-weight: 600;
 	  letter-spacing: 0.031rem;
 	  line-height: 1.188rem;
+		text-align: left;
+	}
+}
+
+.Transfer{
+	margin-top: 30px;
+
+	&__input{
+	  display: none;
+
+	  & + label {
+	    margin: 0;
+	    cursor: pointer;
+	    position: relative;
+	    color: #4a4a4a;
+	    font-family: $font-family-open-sans;
+	    font-size: 0.813rem;
+      line-height: 1.5;
+			width: calc(100% + 30px);
+	    text-align: left;
+	    padding: 8px 0 8px 45px;
+	    margin: 0 -15px;
+
+			&:hover {
+				background-color: #f1fcff;
+			}
+
+	    &:before {
+	      content: "";
+	      font-size: 15px;
+	      color: #3e9ce8;
+	      top: 8px;
+	      left: 18px;
+	      margin-right: 14px;
+	      position: absolute;
+	      border-radius: 3px;
+	      border: 1px solid #d2d5d6;
+	      background-color: #ffffff;
+	      width: 19px;
+	      height: 19px;
+	    }
+		}
+
+		&:checked + label:before {
+	    // content: "\2713";
+			content: "";
+			background-image: url(./check_icon.svg);
+			background-repeat: no-repeat;
+			background-size: 0.438rem 0.313rem;
+			background-position: center;
+			transform: rotate(180deg);
+	    border: 1px solid #2196f3;
+	    background-color: #f2fcff;
+	  }
 	}
 }
 
@@ -24,23 +79,46 @@ $font-family-open-sans: 'Open Sans', sans-serif;
 		height: 2.5rem;
 		cursor: pointer;
 		text-transform: uppercase;
-    line-height: 2.2rem;
+    line-height: 2.3rem;
 		color: #2196f3;
+		font-size: 0.75rem;
+		text-align: center;
 
 		&:hover {
 			border: 0.063rem solid #64b5f5;
 			background-color: #f2fcff;
 			color: #2196f3;
+
+			// &.Currency__label_rub {
+			// 	border-right: 0.063rem solid #64b5f5;
+			// }
+
+			&.Currency__label_rub ~ .Currency__label_usd {
+				border-left: 0.063rem solid #64b5f5;
+			}
+
+			&.Currency__label_usd ~ .Currency__label_eur {
+				// border-left: 0 !important;
+				border-left: 0.063rem solid #64b5f5;
+			}
+
+			&.Currency__label_eur ~ .Currency__label_usd {
+				border-right: 0 !important;
+			}
+		}
+
+		&_usd {
+			border-right: 0 !important;
 		}
 
 		&_rub {
 			border-radius: 0.313rem 0 0 0.313rem;
-			border-right: 0;
+			border-right: 0 !important;
 		}
 
 		&_eur {
 			border-radius: 0 0.313rem 0.313rem 0;
-			border-left: 0;
+			// border-left: 0 !important;
 		}
 	}
 
@@ -51,6 +129,14 @@ $font-family-open-sans: 'Open Sans', sans-serif;
 			background-color: #2196f3;
 	    border-color: #2196f3;
 			color: #ffffff;
+
+			&.Currency__label_rub ~ .Currency__label_usd {
+				border-left: 0;
+			}
+
+			&.Currency__label_usd ~ .Currency__label_eur {
+				border-left: 0;
+			}
 		}
 	}
 }
