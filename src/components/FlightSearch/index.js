@@ -12,9 +12,14 @@ class FlightSearch extends Component {
               return (
                   <div className="FlightSearch__item">
                     <div className="row h-100 m-0 flex-column-reverse flex-sm-column-reverse">
-                      <div className="col-4 col-sm-12 col-md-4 FlightSearch__price">
-                        <button className="button">Купить <br/> за {parseInt(ticket.price/currency.value)} ​{currency.name}</button>
-                      </div>
+											<div className="col-4 col-sm-12 col-md-4">
+												<div className="row">
+													<div className="col-12 FlightSearch__airline"></div>
+		                      <div className="col-12 FlightSearch__price">
+		                        <button className="button">Купить <br/> за {parseInt(ticket.price/currency.value)} ​{currency.name}</button>
+		                      </div>
+												</div>
+											</div>
                       <div className="col-8 col-sm-12 col-md-8 FlightSearch__info">
                         <div className="FlightSearch__time row mb-2">
                           <div className="col-4 FlightSearch__destination-time text-left">{ticket.arrival_time}</div>

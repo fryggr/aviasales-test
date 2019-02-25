@@ -19,6 +19,15 @@
     padding: 25px 20px;
   }
 
+	&__airline {
+		background-image: url(./airline_logo.svg);
+		background-repeat: no-repeat;
+    background-position: center;
+		width: 7.5rem;
+		height: 2.188rem;
+		padding: 0 20px;
+	}
+
   &__destination-time {
     color: #4a4a4a;
     font-family: $font-family-open-sans;
