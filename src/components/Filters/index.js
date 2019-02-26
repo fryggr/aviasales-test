@@ -91,6 +91,23 @@ class Filters extends Component {
     }, ()=> this.props.getCurrency(this.state.currency));
   }
 
+  transferOnly(number) {
+
+    Object.entries(this.state).map(([name, value]) => {
+
+      if (value.value === number) {
+        this.setState({
+          [name]: { value: number, bool: true}
+        }, () => this.filterTickets())
+      }
+      else if (name !== "currency") {
+        this.setState({
+          [name]: { value: null, bool: false}
+        }, () => this.filterTickets())
+      }
+    })
+  }
+
   render() {
     return (
       <div className="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-12 mb-4 Filters">
@@ -145,7 +162,10 @@ class Filters extends Component {
               checked={this.state.withoutTransfer.bool}
               onChange={this.handleInputChange}
                />
-            <label htmlFor="withoutTransfer">Без пересадок</label>
+             <label htmlFor="withoutTransfer">
+               <span>Без пересадок</span>
+               <span className="Transfer__only" onClick={() => this.transferOnly(0)}>только</span>
+             </label>
             <input
               type="checkbox"
               className="Transfer__input"
@@ -155,7 +175,10 @@ class Filters extends Component {
               checked={this.state.transfer1.bool}
               onChange={this.handleInputChange}
                />
-            <label htmlFor="transfer1">1 пересадка</label>
+             <label htmlFor="transfer1">
+               <span>1 пересадка</span>
+               <span className="Transfer__only" onClick={() => this.transferOnly(1)}>только</span>
+             </label>
             <input
               type="checkbox"
               className="Transfer__input"
@@ -165,7 +188,10 @@ class Filters extends Component {
               checked={this.state.transfer2.bool}
               onChange={this.handleInputChange}
                />
-             <label htmlFor="transfer2">2 пересадки</label>
+             <label htmlFor="transfer2">
+               <span>2 пересадки</span>
+               <span className="Transfer__only" onClick={() => this.transferOnly(2)}>только</span>
+             </label>
             <input
               type="checkbox"
               className="Transfer__input"
@@ -174,7 +200,10 @@ class Filters extends Component {
               id="transfer3"
               checked={this.state.transfer3.bool}
               onChange={this.handleInputChange} />
-            <label htmlFor="transfer3">3 пересадки</label>
+            <label htmlFor="transfer3">
+              <span>3 пересадки</span>
+              <span className="Transfer__only" onClick={() => this.transferOnly(3)}>только</span>
+            </label>
           </div>
         </div>
       </div>

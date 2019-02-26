@@ -22,6 +22,21 @@
 .Transfer{
 	margin-top: 30px;
 
+	&__only {
+		color: #2196f3;
+		font-family: $font-family-open-sans;
+		font-size: 0.688rem;
+		font-weight: 600;
+		letter-spacing: 0.031rem;
+		text-transform: uppercase;
+    padding-right: 14px;
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 10px;
+		height: 100%;
+	}
+
 	&__input{
 	  display: none;
 
@@ -37,9 +52,17 @@
 	    text-align: left;
 	    padding: 8px 0 8px 45px;
 	    margin: 0 -15px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			position: relative;
 
 			&:hover {
 				background-color: #f1fcff;
+
+				.Transfer__only {
+					display: inline-block;
+				}
 			}
 
 	    &:before {
