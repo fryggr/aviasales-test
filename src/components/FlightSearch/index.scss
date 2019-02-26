@@ -8,6 +8,7 @@
   	border-radius: 5px;
     height: 161px;
     margin-bottom: 20px;
+    overflow: hidden;
   }
 
   &__info {
@@ -15,17 +16,22 @@
   }
 
   &__price {
+    padding: 20px 20px 25px 20px;
+  }
+
+  &__info-price {
     border-right: 1px solid #eceff1;
-    padding: 25px 20px;
   }
 
 	&__airline {
 		background-image: url(./airline_logo.svg);
 		background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 		width: 7.5rem;
 		height: 2.188rem;
 		padding: 0 20px;
+    margin-top: 25px;
 	}
 
   &__destination-time {
@@ -39,8 +45,9 @@
     background-image: url('./icon_aircraft.png');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 6.813rem;
+    max-width: 6.813rem;
     height: 13px;
+    width: 100%;
   }
 
   &__transfer-title {
@@ -49,6 +56,7 @@
     font-size: 0.625rem;
     font-weight: 600;
     line-height: 0.756rem;
+    text-transform: uppercase;
   }
 
   &__destination {
@@ -60,6 +68,51 @@
     &-point {
       color: #4a4a4a;
       font-weight: 600;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .FlightSearch {
+
+    &__destination-time{
+      font-size: 1.5rem;
+    }
+
+    &__transfer-icon{
+      margin-top: 5px;
+    }
+
+    &__airline{
+      height: 1.8rem;
+    }
+
+    &__transfer-title{
+      font-size: 0.525rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .FlightSearch {
+
+    &__item {
+      height: auto;
+      padding-bottom: 25px;
+    }
+
+    &__info-price {
+      border: 0;
+    }
+
+    &__airline {
+      background-position: 20px 0;
+      margin-top: 0;
+    }
+
+    &__price {
+      padding: 0 20px 0 0;
+      text-align: right;
     }
   }
 }

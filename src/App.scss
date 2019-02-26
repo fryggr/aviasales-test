@@ -3,45 +3,16 @@
 .App {
   text-align: center;
 	background: #F3F7FA;
-  padding-top: 50px;
+  padding-top: 3rem;
+  min-height: 100vh;
 
   &__icon {
     background-image: url(./flight_icon.svg);
     background-repeat: no-repeat;
-    background-size: 78px 85px;
-    width: 75px;
-    height: 85px;
-    margin-bottom: 50px;
-  }
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    background-size: 5.75rem 5.813rem;
+    width: 5.75rem;
+    height: 5.813rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -67,18 +38,5 @@
   .button {
     width: 8rem;
     font-size: .8rem;
-  }
-
-  .FlightSearch__destination-time{
-    font-size: 1.5rem;
-  }
-
-  .FlightSearch__transfer-icon{
-    width: 4.813rem;
-    margin-top: 5px;
-  }
-
-  .FlightSearch__item {
-    height: auto;
   }
 }

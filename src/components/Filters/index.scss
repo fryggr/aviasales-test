@@ -4,7 +4,7 @@
 	background: #fff;
 	box-shadow: 0 1px 4px rgba(91, 137, 164, 0.25);
 	border-radius: 5px;
-	height: 331px;
+	height: 20.688rem;
   padding: 15px;
   text-align: left;
 
@@ -59,11 +59,10 @@
 		}
 
 		&:checked + label:before {
-	    // content: "\2713";
 			content: "";
 			background-image: url(./check_icon.svg);
 			background-repeat: no-repeat;
-			background-size: 0.438rem 0.313rem;
+			background-size: 0.538rem 0.413rem;
 			background-position: center;
 			transform: rotate(180deg);
 	    border: 1px solid #2196f3;
@@ -89,16 +88,11 @@
 			background-color: #f2fcff;
 			color: #2196f3;
 
-			// &.Currency__label_rub {
-			// 	border-right: 0.063rem solid #64b5f5;
-			// }
-
 			&.Currency__label_rub ~ .Currency__label_usd {
 				border-left: 0.063rem solid #64b5f5;
 			}
 
 			&.Currency__label_usd ~ .Currency__label_eur {
-				// border-left: 0 !important;
 				border-left: 0.063rem solid #64b5f5;
 			}
 
@@ -118,7 +112,6 @@
 
 		&_eur {
 			border-radius: 0 0.313rem 0.313rem 0;
-			// border-left: 0 !important;
 		}
 	}
 
@@ -139,4 +132,11 @@
 			}
 		}
 	}
+}
+
+@media only screen and (max-width: 992px) {
+  .Filters {
+    max-width: calc(100% - 30px);
+    margin-left: 15px;
+  }
 }
