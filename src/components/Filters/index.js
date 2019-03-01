@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.scss'
+import Checkbox from '../Checkbox'
 
 class Filters extends Component {
 
@@ -31,9 +32,13 @@ class Filters extends Component {
     this.filterTickets()
   }
 
-  handleInputChange = (event) => {
+  handleInputChange = number => event => {
+    number !== null ? this.transferOnly(number) : this.handleFilters(event)
+  }
+
+  handleFilters(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.checked;
     const name = target.id;
 
     let check = {
@@ -92,10 +97,9 @@ class Filters extends Component {
   }
 
   transferOnly(number) {
-
     Object.entries(this.state).map(([name, value]) => {
 
-      if (value.value === number) {
+      if (value.value === number && value.bool === true) {
         this.setState({
           [name]: { value: number, bool: true}
         }, () => this.filterTickets())
@@ -144,66 +148,60 @@ class Filters extends Component {
         <div className="Transfer">
           <h3 className="Filters__title">КОЛИЧЕСТВО ПЕРЕСАДОК</h3>
           <div className="Transfer__check">
-            <input
+            <Checkbox
               type="checkbox"
               className="Transfer__input"
               name="transfer"
               value="all"
               id="allTransfers"
               checked={this.state.allTransfers.bool}
-              onChange={this.handleInputChange} />
-            <label htmlFor="allTransfers">Все</label>
-            <input
+              onChange={this.handleInputChange(null)}>
+              Все
+            </Checkbox>
+            <Checkbox
               type="checkbox"
               className="Transfer__input"
               name="transfer"
               value="0"
               id="withoutTransfer"
               checked={this.state.withoutTransfer.bool}
-              onChange={this.handleInputChange}
-               />
-             <label htmlFor="withoutTransfer">
-               <span>Без пересадок</span>
-               <span className="Transfer__only" onClick={() => this.transferOnly(0)}>только</span>
-             </label>
-            <input
+              onChange={this.handleInputChange(null)}
+              onClickOnly={this.handleInputChange(0)}>
+              Без пересадок
+            </Checkbox>
+            <Checkbox
               type="checkbox"
               className="Transfer__input"
               name="transfer"
               value="1"
               id="transfer1"
               checked={this.state.transfer1.bool}
-              onChange={this.handleInputChange}
-               />
-             <label htmlFor="transfer1">
-               <span>1 пересадка</span>
-               <span className="Transfer__only" onClick={() => this.transferOnly(1)}>только</span>
-             </label>
-            <input
+              onChange={this.handleInputChange(null)}
+              onClickOnly={this.handleInputChange(1)}>
+              1 пересадка
+            </Checkbox>
+            <Checkbox
               type="checkbox"
               className="Transfer__input"
               name="transfer"
               value="2"
               id="transfer2"
               checked={this.state.transfer2.bool}
-              onChange={this.handleInputChange}
-               />
-             <label htmlFor="transfer2">
-               <span>2 пересадки</span>
-               <span className="Transfer__only" onClick={() => this.transferOnly(2)}>только</span>
-             </label>
-            <input
+              onChange={this.handleInputChange(null)}
+              onClickOnly={this.handleInputChange(2)}>
+              2 пересадки
+            </Checkbox>
+            <Checkbox
               type="checkbox"
               className="Transfer__input"
               name="transfer"
               value="3"
               id="transfer3"
               checked={this.state.transfer3.bool}
-              onChange={this.handleInputChange} />
-            <label htmlFor="transfer3">
-              <span>3 пересадки</span>
-              <span className="Transfer__only" onClick={() => this.transferOnly(3)}>только</span>
-            </label>
+              onChange={this.handleInputChange(null)}
+              onClickOnly={this.handleInputChange(3)}>
+              3 пересадки
+            </Checkbox>
           </div>
         </div>
       </div>
