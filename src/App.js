@@ -38,26 +38,27 @@ class App extends Component {
 
 	getCurrency = currency => {
 
-    const usd = 65.86;
-		const eur = 74.33;
-		let name = "₽";
-		let value = 1;
+    const currencies = [
+      {
+        value: 65.86,
+				mark: "$",
+        name: "usd"
+      },
+      {
+        value: 74.33,
+				mark: "€",
+        name: "eur"
+      },
+      {
+        value: 1,
+				mark: "₽",
+        name: "rub"
+      }
+    ]
 
-		switch (currency) {
-			case "usd":
-				value = usd;
-				name = "$"
-				break;
-			case "eur":
-				value = eur;
-				name = "€"
-				break;
-			case "rub":
-				value = 1;
-				name = "₽";
-		}
-
-		this.setState({ currency: { name: name, value: value} })
+    currencies.forEach(item => {
+      if(item.name === currency) this.setState({ currency: { name: item.mark, value: item.value} })
+    })
 	}
 
   render() {
